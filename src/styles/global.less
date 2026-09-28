@@ -1,0 +1,90 @@
+@ink: #263d38;
+@muted: #71817a;
+@green: #28624e;
+@green-light: #eaf2ec;
+@paper: #f7f8f2;
+@white: #ffffff;
+@line: #e7ebe4;
+@danger: #a63b39;
+@space: 8px;
+@font: 'Segoe UI', system-ui, sans-serif;
+@small: 13px;
+@radius: 18px;
+
+* { box-sizing: border-box; }
+body { margin: 0; min-width: 320px; font-family: @font; color: @ink; background: @paper; }
+button, input { font: inherit; }
+button, a, input { -webkit-tap-highlight-color: transparent; }
+button { cursor: pointer; }
+button:disabled, input:disabled { cursor: not-allowed; opacity: .5; }
+button, input, a { &:focus-visible { outline: 3px solid #88ae63; outline-offset: 4px; } }
+button { transition: background .15s, color .15s; }
+.app-shell { max-width: 1120px; margin: auto; padding: 0 (@space * 5); }
+.site-header { display: flex; align-items: center; justify-content: space-between; padding: (@space * 4) 0; border-bottom: 1px solid @line; }
+.brand { display: inline-flex; align-items: center; color: @ink; text-decoration: none; font-size: 30px; font-weight: 750; letter-spacing: -1.4px; }
+.brand-mark { display: grid; place-items: center; background: @green; color: @white; width: 34px; height: 34px; border-radius: 11px; font-size: 23px; margin-right: 11px; }
+.brand-dot { color: #81a85b; }
+.header-note { font-size: @small; color: @muted; }
+main { max-width: 760px; margin: auto; }
+.intro { padding: 64px 0 36px; }
+.eyebrow { display: flex; align-items: center; gap: @space; font-size: 10px; font-weight: 700; letter-spacing: 2px; color: @green; span { width: 6px; height: 6px; border-radius: 50%; background: #81a85b; } }
+h1 { font-size: clamp(38px, 5vw, 56px); font-weight: 650; line-height: 1.14; letter-spacing: -2px; margin: 20px 0; span { color: #799175; } }
+.intro p { color: @muted; font-size: 15px; line-height: 1.8; margin: 0; }
+.mobile-break { display: none; }
+.todo-panel { background: @white; border: 1px solid @line; border-radius: @radius; box-shadow: 0 12px 50px #263d3806; overflow: hidden; }
+.panel-top { display: flex; align-items: center; justify-content: space-between; padding: 28px 28px 24px; gap: 16px; h2 { font-size: 20px; font-weight: 650; letter-spacing: -.5px; margin: 0 0 7px; } p { margin: 0; color: @muted; font-size: @small; line-height: 1.5; } }
+.count-badge { background: @green-light; color: @green; border: 1px solid #d9e5da; border-radius: 10px; min-width: 38px; height: 38px; padding: 0 8px; display: grid; place-items: center; font-size: 15px; }
+.add-form { display: flex; align-items: center; gap: 10px; margin: 0 28px 26px; padding: 7px; border: 1px solid #dfe6dc; border-radius: 11px; background: #fafbf8; &:focus-within { border-color: #81a85b; } input { background: transparent; border: 0; min-width: 0; flex: 1; color: @ink; padding: 10px 0; font-size: 14px; &::placeholder { color: #8b978e; } } }
+.add-symbol { font-size: 25px; color: #98a692; margin-left: 8px; }
+.primary-button, .secondary-button { border: 0; border-radius: 7px; background: @green; color: @white; padding: 12px 18px; font-size: @small; font-weight: 600; white-space: nowrap; &:hover:not(:disabled) { background: #1a4a39; } span { margin-left: 12px; } }
+.secondary-button { margin-top: 16px; background: @green-light; color: @green; &:hover:not(:disabled) { background: #d7e5d9; } }
+.list-toolbar { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 0 28px 20px; border-bottom: 1px solid @line; }
+.filters { display: flex; gap: 4px; background: #f3f5f0; padding: 4px; border-radius: 8px; button { border: 0; border-radius: 5px; padding: 8px 14px; font-size: 12px; color: @muted; background: transparent; &.selected { color: @green; background: @white; box-shadow: 0 1px 4px #263d3812; font-weight: 600; } &:hover { color: @green; } } }
+.active-count { font-size: 12px; color: @muted; white-space: nowrap; }
+.todo-list { list-style: none; padding: 0; margin: 0; }
+.todo-item { display: flex; align-items: center; gap: 15px; padding: 19px 28px; min-height: 82px; border-bottom: 1px solid #eef0eb; &:last-child { border: 0; } &:hover { background: #fcfdfb; } }
+.todo-checkbox { appearance: none; width: 21px; height: 21px; flex: 0 0 21px; border: 1.5px solid #ccd6c9; border-radius: 6px; cursor: pointer; margin: 0; display: grid; place-content: center; &:checked { background: @green; border-color: @green; &::after { content: '✓'; color: white; font-size: 14px; } } }
+.todo-copy { flex: 1; min-width: 0; }
+.todo-title { display: block; font-size: 14px; line-height: 1.5; overflow-wrap: anywhere; }
+.todo-date { display: block; margin-top: 4px; font-size: 11px; color: #929c94; }
+.is-completed { .todo-title { text-decoration: line-through; color: #94a094; } .todo-checkbox:checked { background: #a8bba5; border-color: #a8bba5; } }
+.item-actions { display: flex; gap: 4px; }
+.icon-button { width: 34px; height: 34px; display: grid; place-items: center; background: transparent; border: 0; border-radius: 7px; color: #7b8a7c; svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; } &:hover:not(:disabled) { background: @green-light; color: @green; } &.delete-button:hover:not(:disabled) { background: #faece9; color: @danger; } }
+.edit-form { flex: 1; min-width: 0; display: flex; gap: 8px; flex-wrap: wrap; input { flex: 1; min-width: 120px; width: 100%; border: 1px solid #bacdb4; border-radius: 6px; padding: 9px; color: @ink; } }
+.edit-actions { display: flex; gap: 6px; button { border: 1px solid @line; background: @green-light; color: @green; border-radius: 6px; padding: 8px; font-size: 12px; } }
+.empty-state { padding: 42px 24px; min-height: 245px; display: flex; align-items: center; justify-content: center; flex-direction: column; text-align: center; h3 { margin: 16px 0 8px; font-size: 17px; font-weight: 600; } p { color: @muted; font-size: @small; margin: 0; max-width: 420px; line-height: 1.7; } }
+.state-icon { width: 44px; height: 44px; border: 1px solid #dce8d9; background: #f1f6ed; color: #71946b; border-radius: 14px; display: grid; place-items: center; font-size: 23px; }
+.error-state .state-icon { background: #fcf0e9; color: @danger; border-color: #efded3; }
+.action-error { margin: 16px 28px; padding: 14px; border-radius: 8px; background: #fff1ed; color: @danger; font-size: @small; line-height: 1.6; button { background: transparent; border: 0; color: inherit; padding: 0; text-decoration: underline; } }
+.spinner { width: 30px; height: 30px; border-radius: 50%; border: 3px solid @green-light; border-top-color: @green; animation: spin 1s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+.panel-footer { display: flex; justify-content: space-between; gap: 12px; background: #fcfdf9; border-top: 1px solid @line; padding: 16px 28px; font-size: 11px; color: @muted; }
+.closing-note { display: flex; justify-content: center; gap: 9px; font-size: 12px; color: #8b9788; margin: 26px 0 60px; text-align: center; line-height: 1.6; span { color: #9aaf77; } }
+.site-footer { border-top: 1px solid @line; display: flex; justify-content: space-between; gap: 16px; padding: 23px 0; color: #94a08e; font-size: 11px; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+@media (max-width: 600px) {
+  .app-shell { padding: 0 18px; }
+  .site-header { padding: 22px 0; }
+  .header-note { max-width: 130px; text-align: right; font-size: 11px; line-height: 1.6; }
+  .intro { padding: 38px 0 28px; }
+  .intro p { font-size: 13px; }
+  .mobile-break { display: inline; }
+  .panel-top { padding: 22px 18px; p { max-width: 200px; font-size: 12px; } }
+  .add-form { margin: 0 16px 20px; gap: 5px; }
+  .add-symbol { display: none; }
+  .add-form input { padding-left: 6px; font-size: 13px; }
+  .primary-button { padding: 12px; span { display: none; } }
+  .list-toolbar { padding: 0 16px 16px; flex-wrap: wrap; }
+  .filters button { padding: 9px 10px; }
+  .todo-item { padding: 17px 16px; gap: 10px; }
+  .item-actions { gap: 0; }
+  .icon-button { width: 32px; height: 38px; }
+  .panel-footer { padding: 15px 16px; font-size: 10px; }
+  .empty-state { padding: 35px 18px; }
+  .action-error { margin: 16px; }
+  .closing-note { margin-bottom: 38px; font-size: 11px; }
+  .site-footer { flex-wrap: wrap; font-size: 10px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; transition: none !important; }
+}
