@@ -41,6 +41,8 @@ React, TypeScript (strict), Vite, LESS, Axios; зовнішній Mock REST API 
 - npm run dev — Vite; MockAPI.io працює як зовнішній сервіс і не потребує локального npm-скрипту.
 - npm run lint — ESLint без попереджень; npm run typecheck — TypeScript.
 - npm run build — перевірка TypeScript та production build у dist.
-- npm run check — ESLint і production build; npm run preview — перегляд dist.
+- npm run test — автоматичні тести без звернення до MockAPI.io.
+- При зміні API або useTodos оновлюй тести помилок, підтвердження змін та захисту від застарілих відповідей.
+- npm run check — ESLint, тести і production build; npm run preview — перегляд dist.
 - Після змін запускай відповідні перевірки; перед завершенням конфігураційних змін — npm run check.
 - Оновлюй документацію разом із командами, структурою, змінними середовища та залежностями.
